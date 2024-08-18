@@ -15,7 +15,6 @@ export default function Home() {
      setResults(results?JSON.parse(results):"")
   }, []);
   const similar = results.filter((result)=>result.id !== params.placeName );
-   console.log(similar);
    
     interface Place {
         id:string;
@@ -41,10 +40,10 @@ export default function Home() {
   return (
     <main className="w-full py-5 md:py-10 px-2 lg:px-5">
     <div className="flex  gap-5 lg:px-5 lg:pb-5 items-center">
-      <div className='w-7 h-7 m-2 rounded-full  border-2'>
+      <div className='w-10 h-10 m-2 rounded-full flex justify-center items-center hover:bg-blue-500 hover:text-white  border-2'>
       <Link href='/'>  
-     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-6 w-6 hover:bg-blue-500">
+  <path   d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
 </svg>
 
       </Link>
@@ -80,7 +79,7 @@ export default function Home() {
       </div>
       <div className="flex items-center gap-3">
         <p className="font-bold lg:px-5 lg:text-xl text-sm">Best With:</p>
-        <p className=''>{result?.bestWith}</p>
+        <p className=''>{result?.bestWith?result?.bestWith:"Friends"}</p>
       </div>
       <p className="font-bold lg:px-5 lg:text-xl text-sm">Activities to do:</p>
       <div className="flex gap-3  lg:px-5 flex-wrap">
